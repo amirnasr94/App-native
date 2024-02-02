@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import { StyleSheet, View, Image, Text, useColorScheme } from "react-native";
 import { EvilIcons } from "@expo/vector-icons";
 
@@ -65,7 +65,7 @@ const avatar = (author) => {
   return <Image style={styles.avatar} source={{ uri: imageUrl }} />;
 };
 
-const GrayText = ({ children, numberOfLines, style }) => {
+const GrayText = ({ children, numberOfLines, style }:{children:ReactNode}) => {
   return (
     <Text style={[style, styles.gray]} numberOfLines={numberOfLines}>
       {children}
@@ -93,8 +93,8 @@ const TweetContent = ({ tweet }) => {
             <GrayText style={styles.author} numberOfLines={1}>
               @{tweet.author.screenName}
             </GrayText>
-            {/* <GrayText>·</GrayText>
-            <GrayText>2h</GrayText> */}
+            <GrayText>·</GrayText>
+            <GrayText>2h</GrayText>
           </View>
           <Text
             style={[
